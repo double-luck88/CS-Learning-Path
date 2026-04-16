@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+#include<string>
+using namespace std;
+//两个bool函数，同时判断质数和回文
+bool F(int n)
+{
+    int b=0;
+    int a=n;
+     while(a>0)
+   {
+       b=a%10+b*10;
+       a/=10;
+   }
+    return n==b;//逆序后和原数相等为回文，正确返回True
+}
+bool f(int n)
+{
+     int b=0;
+    int a=n;
+    if(a%2==0) return false;//除2以外都算偶数
+    for(int i=3;i*i<=n;i++)//质数因素的平方不超过他本身
+    {
+        if(a%i==0)
+            return false;
+    }
+    return true;
+  
+     
+}
+int main()
+{
+    int a=0,b=0;
+    cin>>a>>b;
+    for(int i=a;i<=b;i++)
+    {
+        if(f(i)&&F(i))//同时判断，True符合并输出
+           {
+              cout<<i<<endl;
+           }
+    }
+    return 0;  
+}
