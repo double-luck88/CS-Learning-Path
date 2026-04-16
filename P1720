@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+     int n;
+    double a,b,m,f,t;
+    cin>>n;
+    //用函数直接算
+    a=(sqrt(5)+1)/2;
+    b=(1-sqrt(5))/2;
+    m=pow(a,n);
+    t=pow(b,n);
+    f=(m-t)/sqrt(5);
+    printf("%.2f",f);
+    return 0;
+}
