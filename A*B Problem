@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int a[2005], b[2005],c[2005];
+string mul(string s1, string s2)
+{
+	if (s1 == "0" || s2 == "0")//如果其中一个数为0，则结果为0
+		return  "0";
+
+	int len1 = s1.size(), len2 = s2.size();
+
+	for (int i = 0; i < len1; i++) a[len1 - i] = s1[i] - '0';//字符串转化为整数数组
+	for (int i = 0; i < len2; i++) b[len2 - i] = s2[i] - '0';
+
+	for(int i=1;i<=len1;i++)
+		for (int j = 1; j <= len2; j++)
+		{
+			c[i + j - 1] += a[i] * b[j];//乘积累加到对应位上，用权重算
+		}
+
+	for (int i = 1; i <= len1 + len2; i++)
+		c[i + 1] += c[i] / 10, c[i] %= 10;//进位
+
+	string ans;
+	if(c[len1+len2])
+		ans += c[len1 + len2] + '0';//如果最高位有数，则加上最高位
+
+	for (int i = len1 + len2 - 1; i >= 1; i--)
+		ans += c[i] + '0';//加上剩余位
+
+	return ans;
+}
+int main()
+{
+	string s1, s2;
+	cin >> s1 >> s2;
+	cout << mul(s1, s2);
+	return 0;
+}
