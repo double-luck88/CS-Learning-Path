@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+char a[2005], b[2005];
+string add(string sa, string sb) {
+	int lena = sa.size(), lenb = sb.size();
+	for (int i = 0; i < lena; i++)
+	{
+		a[lena - 1 - i] = sa[i] - '0';//把字符串转化成数字然后翻转，是a[0]是最低位
+	}
+	for (int i = 0; i < lenb; i++)
+	{
+		b[lenb - 1 - i] = sb[i] - '0';
+	}
+	int lmax;
+	lmax = lena > lenb ? lena : lenb;
+	for (int i = 0; i < lmax; i++)
+	{
+		a[i] += b[i];
+		a[i + 1] += a[i] / 10;//处理进位
+		a[i] %= 10;
+	}
+	if (a[lmax]) lmax++;  //若高位相加后也有进位，数字长度加1
+	string ans;//字符串
+	for (int i = lmax - 1; i >= 0; i--)
+	{
+		ans += a[i] + '0';//把a[]数字转化成字符串，用ans把a[]拼接在一起，并翻转
+	}
+	return ans;
+
+}
+int main()
+{
+	string sa, sb;
+	cin >> sa >> sb;
+	cout << add(sa, sb);
+	return 0;
+}
