@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+vector<int>mul(vector<int>a, int b) {
+	vector<int>c;
+	int carry = 0;
+	for (int i = 0; i < a.size() || carry; i++) {
+		if (i < a.size())
+			carry += a[i] * b;
+		c.push_back(carry % 10);
+		carry /= 10;
+	}
+	while (c.size() > 1 && c.back() == 0)
+		c.pop_back();
+	return c;
+}
+vector<int> add(vector<int> a, const vector<int>& b)
+{
+	int carry = 0;
+	for (int i = 0; i < max(a.size(), b.size()) || carry; i++)
+	{
+		if (i == a.size())
+			a.push_back(0);
+		a[i] += carry + (i < b.size() ? b[i] : 0);
+		carry = a[i] / 10;
+		a[i] %= 10;
+	}
+	return a;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	vector<int>sum = { 0 };
+	vector<int>fact = { 1 };
+	for (int i = 1; i <= n; i++)
+	{
+		fact = mul(fact, i);
+		sum = add(sum, fact);
+	}
+	for (int i = sum.size() - 1; i >= 0; i--)
+		cout << sum[i];
+	cout << endl;
+	return 0;
+}
