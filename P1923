@@ -1,0 +1,16 @@
+//排序查找问题
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k,x;
+    cin>>n>>k;
+    vector<int>arr;
+    while(n--)
+    {
+        cin>>x;
+        arr.push_back(x);
+    }
+    sort(arr.begin(),arr.end());//用这个会超时，数字大的话
+    cout<<arr[k];
+}
