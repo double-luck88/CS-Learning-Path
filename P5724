@@ -16,7 +16,7 @@ int main()
     {
         if(arr[i]>max1)
         {
-            max1=arr[i];
+            max1=arr[i];//求最大值
         }
     }
     min1=arr[0];
@@ -24,7 +24,7 @@ int main()
     {
         if(min1>arr[i])
         {
-            min1=arr[i];
+            min1=arr[i];//求最小值
         }
     }
     a=max1-min1;
