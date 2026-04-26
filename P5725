@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i=1;i<=n*n;i++)
+    {
+        cout<<setfill('0')<<setw(2)<<i;
+        if(i%n==0)
+        {
+            cout<<endl;
+        }
+    }
+       cout<<endl;
+        int a=0,i=1;
+        for(int j=0;j<n;j++)
+        {
+            
+            for(int t=1;t<=n-i;t++)
+            {
+                cout<<' '<<' ';
+            }
+            for(int t=1;t<=i;t++)
+            {
+                 a+=1;
+                cout<<setfill('0')<<setw(2)<<a;
+                
+            }
+            cout<<endl;
+            i++;
+        }
+               
+       
+}
