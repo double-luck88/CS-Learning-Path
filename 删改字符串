@@ -1,0 +1,31 @@
+def func(str1,str2):
+    chars=set(str2)
+    l1=[]
+    #result=""
+    for char in str1:
+        if char not in chars:
+            l1.append(char)
+            #result+=char
+    result=''.join(l1)
+    return result
+str1=input('请输入第一个字符串str1：')
+str2=input('请输入第二个字符串str2：')
+result=func(str1,str2)
+print(result)
+
+#第三种方法
+def func(str1, str2):
+    # 创建一个集合来存储str2中的字符，以便快速查找
+    chars_to_remove = set(str2)
+    
+    # 使用列表推导式来过滤掉str1中出现在str2中的字符
+    result = ''.join([char for char in str1 if char not in chars_to_remove])
+    
+    return result
+
+# 示例用法
+str1 = "hello world"
+str2 = "lo"
+result = func(str1, str2)
+print(result)  # 输出: "he wrd"
+
