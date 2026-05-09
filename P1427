@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int x,i=1;
+    vector<int>arr;
+    while(cin>>x)
+    {
+        arr.push_back(x);
+    }
+    reverse(arr.begin(),arr.end());
+    while(arr[i]!='\0')
+    {
+        cout<<arr[i]<<' ';
+        i++;
+    }
+}
