@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool t[10001];//t数组要大一点不然会溢出，bool类型要定义在main函数外
+int main()
+{
+    int l,m,sum=0;
+    scanf("%d%d",&l,&m);
+    for(int i=0;i<m;i++)
+    {
+        int a,b;
+        scanf("%d%d",&a,&b);
+        for(int i=a;i<=b;i++)
+        {
+            if(t[i]==0)
+            {
+                sum++;
+                t[i]=1;
+            }
+        }
+    }
+    printf("%d",l-sum+1);//记得加一，从0开始
+}
