@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int MAX=30;
+int arr[MAX][MAX][MAX]={0};
+int main()
+{
+    int w,x,h,q,n,sum=0;
+    cin>>w>>x>>h>>q;
+    n=q;
+    while(q--)
+    {
+        int x1,x2,y1,y2,z1,z2;
+        cin>>x1>>y1>>z1>>x2>>y2>>z2;
+        for(int i=x1;i<=x2;i++)
+        {
+            for(int j=y1;j<=y2;j++)
+            {
+                for(int t=z1;t<=z2;t++)
+                {
+                    arr[i][j][t]=1;//每个切割掉的小方块被置1；
+                }
+            }
+        }
+    }
+    for(int i=1;i<=w;i++)
+    {
+        for(int j=1;j<=x;j++)
+        {
+            for(int t=1;t<=h;t++)
+            {
+                if(arr[i][j][t]==0)//数剩下的
+                {
+                    sum++;
+                }
+            }
+        }
+    }
+    cout<<sum;
+}
