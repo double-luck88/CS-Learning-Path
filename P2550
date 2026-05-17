@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,x;
+    int arr[1000],crr[1000]={0};
+    cin>>n;//老是漏掉这个
+    for(int i=0;i<7;i++)
+    {
+        cin>>arr[i];
+    }
+    while(n--)
+    {
+        int b=0;
+        for(int i=0;i<7;i++)
+        {
+            cin>>x;//每次输入一个，计算总共中奖次数
+            for(int j=0;j<7;j++)
+            {
+                if(x==arr[j])
+                    b++;
+            }
+        } 
+        crr[b]++;
+    }
+    for(int i=7;i>0;i--)//再按逆序输出
+    {
+        cout<<crr[i]<<' ';
+    }
+    
+}
