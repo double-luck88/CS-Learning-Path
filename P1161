@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,t,m,b[10000000]={0};//题目要求的数组要很大，才能通过
+    cin>>n;
+    double a;
+    while(n--)
+    {
+        cin>>a>>t;
+        for(int i=1;i<=t;i++)
+        {
+            m=int(a*i);
+            if(b[m]==0)
+            {
+                b[m]=1;
+            }
+            else if(b[m]==1)
+            {
+                b[m]=0;
+            }
+        }
+    }
+     for(int i=1;;i++)
+    {
+        if(b[i]==1)
+        {
+            cout<<i;
+            break;
+        }
+    }
+}
